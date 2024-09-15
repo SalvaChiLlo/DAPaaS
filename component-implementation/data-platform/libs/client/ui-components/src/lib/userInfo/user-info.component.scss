@@ -1,0 +1,43 @@
+.user-info-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; // Make sure it stays on top of other content
+
+  .user-info {
+    display: flex;
+    align-items: center;
+
+    h4 {
+      margin-right: 20px;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0 10px;
+    }
+  }
+
+  .error {
+    color: red;
+  }
+}
+
+.error-bar,
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffcccc;
+  color: #333;
+  padding: 10px 20px;
+  text-align: center;
+}

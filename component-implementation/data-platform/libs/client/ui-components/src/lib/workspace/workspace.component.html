@@ -1,0 +1,79 @@
+<div class="workspace-container">
+  <h2>Workspace Management for Tenant: {{ tenantId }}</h2>
+
+  <!-- Flex container to arrange the form and list side by side -->
+  <div class="workspace-management">
+    <!-- Create Workspace Section (Left side) -->
+    <div class="section workspace-form">
+      <h3>Create New Workspace</h3>
+      <form [formGroup]="workspaceForm" (ngSubmit)="createWorkspace()">
+        <div class="form-group">
+          <label for="id">Workspace Name</label>
+          <input
+            id="id"
+            formControlName="id"
+            placeholder="Enter workspace name"
+            required
+          />
+        </div>
+
+        <!-- Show spinner when loading, otherwise show submit button -->
+        <button type="submit" [disabled]="loading">
+          <span *ngIf="loading" class="spinner"></span>
+          <span *ngIf="!loading">Create Workspace</span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Workspace List Section (Right side) -->
+    <div class="section workspace-list">
+      <h3>Workspace List</h3>
+      <ul>
+        <li *ngFor="let workspace of workspaces" (click)="loadWorkspaceDetails(workspace.id)">
+          {{ workspace.id }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Workspace Details Section (Below the form and list) -->
+  <div *ngIf="selectedWorkspace" class="section workspace-details">
+    <h3>Workspace Details: {{ selectedWorkspace.id }}</h3>
+
+    <!-- List of Tools Links -->
+    <ul>
+      <li *ngFor="let tool of tools">
+        <a [href]="'/workspace/' + selectedWorkspace.id + '/' + tool + '/'" target="_blank">
+          Open {{ tool | titlecase }}
+        </a>
+      </li>
+    </ul>
+
+    <!-- Delete Workspace Button -->
+    <button (click)="deleteWorkspace(selectedWorkspace.id)">Delete Workspace</button>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>
+
+<style>
+  /* Simple spinner style */
+  .spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    border-top-color: #000;
+    animation: spin 1s infinite linear;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>

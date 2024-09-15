@@ -1,0 +1,154 @@
+{
+  "channels": {
+    "workspace": {
+      "0": [
+        {
+          "auto": {
+            "channel": "workspace",
+            "compRef": {
+              "domain": "salvachillo.dapaas",
+              "kind": "service",
+              "module": "core_service",
+              "name": "",
+              "version": [0, 0, 1]
+            },
+            "roleName": "self"
+          },
+          "user": {}
+        },
+        {
+          "auto": {
+            "servRef": {
+              "domain": "salvachillo.dapaas",
+              "kind": "service",
+              "local": true,
+              "name": "",
+              "module": "dapaas_service",
+              "version": [0, 0, 1]
+            },
+            "deploymentName": "admin/dapaas"
+          },
+          "user": {}
+        },
+        {
+          "auto": {
+            "channel": "workspace",
+            "compRef": {
+              "domain": "salvachillo.dapaas",
+              "kind": "service",
+              "module": "dapaas_service",
+              "name": "",
+              "version": [0, 0, 1]
+            },
+            "roleName": "self"
+          },
+          "user": {}
+        },
+        {
+          "auto": {
+            "servRef": {
+              "domain": "salvachillo.dapaas",
+              "kind": "service",
+              "local": true,
+              "name": "",
+              "module": "user_workspace_service",
+              "version": [0, 0, 1]
+            },
+            "deploymentName": "admin/user-workspace"
+          },
+          "user": {
+            "workspaceId": "workspace/workspace2"
+          }
+        },
+        {
+          "auto": {
+            "channel": "api",
+            "compRef": {
+              "domain": "salvachillo.dapaas",
+              "kind": "component",
+              "module": "access_gateway_component",
+              "name": "",
+              "version": [0, 0, 1]
+            },
+            "roleName": "access_gateway"
+          },
+          "user": {}
+        }
+      ],
+      "4": [
+        {
+          "auto": {
+            "channel": "workspace",
+            "compRef": {
+              "domain": "salvachillo.dapaas",
+              "kind": "service",
+              "module": "core_service",
+              "name": "",
+              "version": [0, 0, 1]
+            },
+            "roleName": "self"
+          },
+          "user": {}
+        },
+        {
+          "auto": {
+            "servRef": {
+              "domain": "salvachillo.dapaas",
+              "kind": "service",
+              "local": true,
+              "name": "",
+              "module": "dapaas_service",
+              "version": [0, 0, 1]
+            },
+            "deploymentName": "admin/dapaas"
+          },
+          "user": {}
+        },
+        {
+          "auto": {
+            "channel": "workspace",
+            "compRef": {
+              "domain": "salvachillo.dapaas",
+              "kind": "service",
+              "module": "dapaas_service",
+              "name": "",
+              "version": [0, 0, 1]
+            },
+            "roleName": "self"
+          },
+          "user": {}
+        },
+        {
+          "auto": {
+            "servRef": {
+              "domain": "salvachillo.dapaas",
+              "kind": "service",
+              "local": true,
+              "name": "",
+              "module": "user_workspace_service",
+              "version": [0, 0, 1]
+            },
+            "deploymentName": "admin/user-workspace"
+          },
+          "user": {
+            "workspaceId": "workspace/workspace3"
+          }
+        },
+        {
+          "auto": {
+            "channel": "api",
+            "compRef": {
+              "domain": "salvachillo.dapaas",
+              "kind": "component",
+              "module": "access_gateway_component",
+              "name": "",
+              "version": [0, 0, 1]
+            },
+            "roleName": "access_gateway"
+          },
+          "user": {}
+        }
+      ]
+    }
+  }
+}

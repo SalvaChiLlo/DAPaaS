@@ -1,0 +1,16 @@
+<div class="user-info-bar" *ngIf="userInfo">
+  <div class="user-info">
+    <h4>Welcome, {{ userInfo.name }}</h4>
+    <p>Id: {{ userInfo.id }}</p>
+    <p>Email: {{ userInfo.email }}</p>
+    <p>Associated Tenants: {{ userInfo.tenantRoles?.length || 0 }}</p>
+  </div>
+</div>
+
+<div class="error-bar" *ngIf="!userInfo && errorMessage">
+  <p class="error">{{ errorMessage }}</p>
+</div>
+
+<div class="loading-bar" *ngIf="!userInfo && !errorMessage">
+  <p>Loading user information...</p>
+</div>

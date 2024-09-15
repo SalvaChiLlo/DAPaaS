@@ -1,0 +1,9 @@
+{
+  "name": "server-feature-tenant",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/server/feature-tenant/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project server-feature-tenant --web",
+  "targets": {}
+}

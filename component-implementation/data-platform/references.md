@@ -1,0 +1,1 @@
+https://dev.to/ipreda/nx-nestjs-how-to-autogenerate-openapiswagger-specs-518n

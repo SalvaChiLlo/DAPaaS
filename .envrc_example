@@ -1,0 +1,26 @@
+# ssh-keygen -t ed25519 -C "fsync@dapaas.com" -f ./.tmp/id_ed25519
+export PUBLIC_SSH_KEY=
+export PRIVATE_SSH_KEY=
+
+export DOCKER_REGISTRY=
+export DOCKER_USER=
+export DOCKER_PASSWORD=
+
+export DEFAULT_PASSWORD=
+
+export GOOGLE_IDP_CLIENT_ID=
+export GOOGLE_IDP_CLIENT_SECRET=
+
+export ABW_TOKEN=
+export ABW_CLUSTER_ADMISSION=
+export ABW_CLUSTER_CERT=
+export ABW_CLUSTER_KEY=
+export ABW_CLUSTER_CA=
+
+export DATABASE_TYPE=sqlite
+export DATABASE_NAME=data-platform
+export DATABASE_PATH=tmp/development.sqlite
+export DATABASE_HOST=
+export DATABASE_PORT=
+export DATABASE_USERNAME=
+export DATABASE_PASSWORD=

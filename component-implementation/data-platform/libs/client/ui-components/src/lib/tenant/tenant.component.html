@@ -1,0 +1,104 @@
+<div class="tenant-container">
+  <h2 class="title">Tenant Management</h2>
+
+  <!-- Create Tenant Section -->
+  <div class="section">
+    <h3>Create New Tenant</h3>
+    <form [formGroup]="tenantForm" (ngSubmit)="createTenant()">
+      <div class="form-group">
+        <label for="id">Tenant Name</label>
+        <input
+          id="id"
+          formControlName="id"
+          placeholder="Enter tenant name"
+          required
+        />
+      </div>
+      <button type="submit">Create Tenant</button>
+    </form>
+  </div>
+
+  <!-- List of Tenants -->
+  <div class="section">
+    <h3>Tenant List</h3>
+    <ul class="tenant-list">
+      <li *ngFor="let tenant of tenants" (click)="loadTenantDetails(tenant.id)">
+        {{ tenant.id }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Tenant Details Section (Collapsible) -->
+  <div *ngIf="selectedTenant" class="section tenant-details">
+    <h3 (click)="toggleTenantDetails()">
+      Details: {{ selectedTenant.id }}
+      <span class="toggle-icon">{{ tenantDetailsVisible ? '▲' : '▼' }}</span>
+    </h3>
+
+    <div *ngIf="tenantDetailsVisible">
+      <!-- Add User to Tenant Form -->
+      <form
+        [formGroup]="addUserForm"
+        (ngSubmit)="addUserToTenant(selectedTenant.id)"
+      >
+        <div class="form-group">
+          <label for="userId">User ID</label>
+          <input
+            id="userId"
+            formControlName="userId"
+            placeholder="Enter user ID"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="role">Role</label>
+          <input
+            id="role"
+            formControlName="role"
+            placeholder="Enter user role"
+            required
+          />
+        </div>
+
+        <button type="submit">Add User</button>
+      </form>
+
+      <!-- List of Users in the Tenant -->
+      <h4>Users</h4>
+      <ul class="user-list">
+        <li *ngFor="let user of selectedTenant.users">
+          {{ user.user.name }} ({{ user.role }})
+        </li>
+      </ul>
+
+      <!-- Dataset Management Section (Collapsible) -->
+      <lib-dataset [tenantId]="selectedTenant.id"></lib-dataset>
+    </div>
+
+    <h3 (click)="toggleTenantDatasets()">
+      Datasets: {{ selectedTenant.id }}
+      <span class="toggle-icon">{{ tenantDatasetsVisible ? '▲' : '▼' }}</span>
+    </h3>
+
+    <div *ngIf="tenantDatasetsVisible">
+      <!-- Dataset Management Section (Collapsible) -->
+      <lib-dataset [tenantId]="selectedTenant.id"></lib-dataset>
+    </div>
+
+    <h3 (click)="toggleTenantWorkspaces()">
+      Workspaces: {{ selectedTenant.id }}
+      <span class="toggle-icon">{{ tenantWorkspacesVisible ? '▲' : '▼' }}</span>
+    </h3>
+
+    <div *ngIf="tenantWorkspacesVisible">
+      <!-- Dataset Management Section (Collapsible) -->
+      <lib-workspace [tenantId]="selectedTenant.id"></lib-workspace>
+    </div>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>
